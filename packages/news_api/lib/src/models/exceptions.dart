@@ -1,0 +1,1 @@
+class EmptySearchResultException implements Exception {}

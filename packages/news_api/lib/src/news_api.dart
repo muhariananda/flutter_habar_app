@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:news_api/src/models/exceptions.dart';
 import 'package:news_api/src/models/models.dart';
 import 'package:news_api/src/url_builder.dart';
 
@@ -26,13 +27,13 @@ class NewsApi {
       category: category,
       searchTerm: searchTerm,
     );
-    final  response = await _dio.get(url);
+    final response = await _dio.get(url);
     final jsonObject = response.data as Map<String, dynamic>;
     final articleListPage = ArticleListPageRM.fromJson(jsonObject);
     final aricles = articleListPage.articles;
 
     if (aricles.isEmpty) {
-      throw EmptySearchException();
+      throw EmptySearchResultException();
     }
 
     return articleListPage;
