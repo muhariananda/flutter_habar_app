@@ -33,7 +33,7 @@ class NewsApi {
     final aricles = articleListPage.articles;
 
     if (aricles.isEmpty) {
-      throw EmptySearchResultException();
+      throw EmptySearchResultNewsException();
     }
 
     return articleListPage;
