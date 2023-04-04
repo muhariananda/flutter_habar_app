@@ -1,0 +1,27 @@
+name: news_list
+publish_to: none
+
+environment:
+  sdk: '>=2.19.6 <3.0.0'
+
+dependencies:
+  bloc_concurrency: ^0.2.1
+  domain_models:
+    path: ../../domain_models
+  equatable: ^2.0.5
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.2
+  infinite_scroll_pagination: ^3.2.0
+  news_repository:
+    path: ../../news_repository
+  rxdart: ^0.27.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  very_good_analysis: ^4.0.0+1
+  
+
+flutter:
+  uses-material-design: true
