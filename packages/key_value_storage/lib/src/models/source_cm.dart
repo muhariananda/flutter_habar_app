@@ -5,12 +5,13 @@ part 'source_cm.g.dart';
 @HiveType(typeId: 3)
 class SourceCM {
   SourceCM({
-    required this.name,
+    this.name,
     this.id,
   });
 
   @HiveField(1)
-  final String? id;
+  final String? name;
+
   @HiveField(2)
-  final String name;
+  final String? id;
 }

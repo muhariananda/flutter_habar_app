@@ -18,10 +18,10 @@ class ArticleCMAdapter extends TypeAdapter<ArticleCM> {
     };
     return ArticleCM(
       source: fields[1] as SourceCM,
-      author: fields[2] as String,
-      title: fields[3] as String,
-      url: fields[4] as String,
-      publishedAt: fields[5] as String,
+      title: fields[2] as String,
+      url: fields[3] as String,
+      publishedAt: fields[4] as String,
+      author: fields[5] as String?,
       description: fields[6] as String?,
       content: fields[7] as String?,
       urlToImage: fields[8] as String?,
@@ -35,13 +35,13 @@ class ArticleCMAdapter extends TypeAdapter<ArticleCM> {
       ..writeByte(1)
       ..write(obj.source)
       ..writeByte(2)
-      ..write(obj.author)
-      ..writeByte(3)
       ..write(obj.title)
-      ..writeByte(4)
+      ..writeByte(3)
       ..write(obj.url)
-      ..writeByte(5)
+      ..writeByte(4)
       ..write(obj.publishedAt)
+      ..writeByte(5)
+      ..write(obj.author)
       ..writeByte(6)
       ..write(obj.description)
       ..writeByte(7)

@@ -7,10 +7,10 @@ part 'article_cm.g.dart';
 class ArticleCM {
   ArticleCM({
     required this.source,
-    required this.author,
     required this.title,
     required this.url,
     required this.publishedAt,
+    this.author,
     this.description,
     this.content,
     this.urlToImage,
@@ -20,16 +20,16 @@ class ArticleCM {
   final SourceCM source;
 
   @HiveField(2)
-  final String author;
-
-  @HiveField(3)
   final String title;
 
-  @HiveField(4)
+  @HiveField(3)
   final String url;
 
-  @HiveField(5)
+  @HiveField(4)
   final String publishedAt;
+
+  @HiveField(5)
+  final String? author;
 
   @HiveField(6)
   final String? description;

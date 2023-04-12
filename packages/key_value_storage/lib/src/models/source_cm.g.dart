@@ -17,8 +17,8 @@ class SourceCMAdapter extends TypeAdapter<SourceCM> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return SourceCM(
-      name: fields[2] as String,
-      id: fields[1] as String?,
+      name: fields[1] as String?,
+      id: fields[2] as String?,
     );
   }
 
@@ -27,9 +27,9 @@ class SourceCMAdapter extends TypeAdapter<SourceCM> {
     writer
       ..writeByte(2)
       ..writeByte(1)
-      ..write(obj.id)
+      ..write(obj.name)
       ..writeByte(2)
-      ..write(obj.name);
+      ..write(obj.id);
   }
 
   @override
