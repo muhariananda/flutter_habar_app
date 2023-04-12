@@ -15,10 +15,13 @@ extension ArticleListPageRMtoCM on ArticleListPageRM {
 extension ArticleRMtoCM on ArticleRM {
   ArticleCM toCacheModel() => ArticleCM(
         source: source.toCacheModel(),
-        author: author,
         title: title,
         url: url,
         publishedAt: publishedAt,
+        author: author,
+        description: description,
+        content:  content,
+        urlToImage: urlToImage,
       );
 }
 

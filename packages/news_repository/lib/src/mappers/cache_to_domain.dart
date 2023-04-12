@@ -15,19 +15,19 @@ extension ArticleListPageCMtoDomain on ArticleListPageCM {
 extension ArticleCMtoDomain on ArticleCM {
   Article toDomainModel() => Article(
         source: source.toDomainModel(),
-        author: author,
         title: title,
         url: url,
         publishedAt: publishedAt,
+        author: author ?? '',
         description: description ?? '',
         content: content ?? '',
-        urlToImage: urlToImage,
+        urlToImage: urlToImage ?? '',
       );
 }
 
 extension SourceCMtoDomain on SourceCM {
   Source toDomainModel() => Source(
         id: id,
-        name: name,
+        name: name ?? '',
       );
 }

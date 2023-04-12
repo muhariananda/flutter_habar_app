@@ -64,7 +64,7 @@ class NewsRepository {
         );
 
         yield freshPage;
-      } catch (_) {
+      } catch (e) {
         final isFetchPolicyNetworkPreferably =
             fetchPolicy == ArticleListaPageFetchPolicy.networkPreferably;
 
@@ -72,7 +72,6 @@ class NewsRepository {
           yield cachePage.toDomainModel();
           return;
         }
-
         rethrow;
       }
     }
@@ -108,8 +107,8 @@ class NewsRepository {
 
       final domainPage = apiPage.toDomainModel();
       return domainPage;
-    } on EmptySearchResultNewsException {
-      throw EmptySearchResultException();
+    } catch (_) {
+      rethrow;
     }
   }
 }

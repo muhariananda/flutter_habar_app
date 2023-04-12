@@ -15,19 +15,19 @@ extension ArticleListPageRMtoDomain on ArticleListPageRM {
 extension ArticleRMtoDomain on ArticleRM {
   Article toDomainModel() => Article(
         source: source.toDomainModel(),
-        author: author,
         title: title,
         url: url,
         publishedAt: publishedAt,
+        author: author ?? '',
         description: description ?? '',
         content: content ?? '',
-        urlToImage: urlToImage,
+        urlToImage: urlToImage ?? '',
       );
 }
 
 extension SourceRMtoDomain on SourceRM {
   Source toDomainModel() => Source(
         id: id,
-        name: name,
+        name: name ?? '',
       );
 }
