@@ -15,13 +15,13 @@ class AppTextTheme {
     titleMedium: GoogleFonts.inter(
       fontSize: FontSize.mediumLarger,
       fontWeight: FontWeight.w600,
-      height: 2,
+      height: 1.5,
       color: _lightColors.onBackground,
     ),
     titleSmall: GoogleFonts.inter(
       fontSize: FontSize.medium,
       fontWeight: FontWeight.w600,
-      height: 2,
+      height: 1.5,
       color: _lightColors.onBackground,
     ),
     labelLarge: GoogleFonts.inter(
@@ -42,7 +42,7 @@ class AppTextTheme {
     bodySmall: GoogleFonts.inter(
       fontSize: FontSize.xSmall,
       fontWeight: FontWeight.w400,
-      height: 2,
+      height: 1.5,
       color: _lightColors.onBackground,
     ),
   );
@@ -58,13 +58,13 @@ class AppTextTheme {
     titleMedium: GoogleFonts.inter(
       fontSize: FontSize.mediumLarger,
       fontWeight: FontWeight.w600,
-      height: 2,
+      height: 1.5,
       color: _darkColors.onBackground,
     ),
     titleSmall: GoogleFonts.inter(
       fontSize: FontSize.medium,
       fontWeight: FontWeight.w600,
-      height: 2,
+      height: 1.5,
       color: _darkColors.onBackground,
     ),
     labelLarge: GoogleFonts.inter(
@@ -85,7 +85,7 @@ class AppTextTheme {
     bodySmall: GoogleFonts.inter(
       fontSize: FontSize.xSmall,
       fontWeight: FontWeight.w400,
-      height: 2,
+      height: 1.5,
       color: _darkColors.onBackground,
     ),
   );
