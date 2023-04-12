@@ -5,14 +5,16 @@ environment:
   sdk: '>=2.19.6 <3.0.0'
 
 dependencies:
-  auto_size_text: ^3.0.0
   flutter:
     sdk: flutter
+  auto_size_text: ^3.0.0
+  cached_network_image: ^3.2.3
   flutter_localizations:
     sdk: flutter
   flutter_svg: ^2.0.4
   google_fonts: ^4.0.3
   intl: ^0.17.0
+  timeago: ^3.3.0
 
 dev_dependencies:
   flutter_test:
