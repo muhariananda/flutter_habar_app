@@ -42,9 +42,9 @@ class NewsListSearchTermChanged extends NewsListEvent {
 }
 
 class NewsListNextPageRequested extends NewsListEvent {
-  const NewsListNextPageRequested(
-    this.pageNumber,
-  );
+  const NewsListNextPageRequested({
+    required this.pageNumber,
+  });
 
   final int pageNumber;
 

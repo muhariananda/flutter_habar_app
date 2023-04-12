@@ -223,12 +223,6 @@ class NewsListBloc extends Bloc<NewsListEvent, NewsListState> {
         );
       }
     } catch (error) {
-      if (error is EmptySearchResultException) {
-        yield NewsListState.noItemsFound(
-          filter: currentlyAppliedFilter,
-        );
-      }
-
       if (isRefresh) {
         yield state.copyWithNewRefreshError(
           error,

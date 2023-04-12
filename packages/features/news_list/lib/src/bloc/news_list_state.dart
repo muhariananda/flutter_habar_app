@@ -23,20 +23,10 @@ class NewsListState extends Equatable {
               : null,
         );
 
-  const NewsListState.noItemsFound({
-    required NewsListFilter? filter,
-  }) : this(
-          itemList: const [],
-          error: null,
-          nextPage: 1,
-          filter: filter,
-        );
-
   const NewsListState.success({
     required int? nextPage,
     required List<Article> itemList,
     required NewsListFilter? filter,
-    // required bool isRefresh,
   }) : this(
           nextPage: nextPage,
           itemList: itemList,
