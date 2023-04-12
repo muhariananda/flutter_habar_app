@@ -7,6 +7,6 @@ part of 'source_rm.dart';
 // **************************************************************************
 
 SourceRM _$SourceRMFromJson(Map<String, dynamic> json) => SourceRM(
+      name: json['name'] as String?,
       id: json['id'] as String?,
-      name: json['name'] as String,
     );

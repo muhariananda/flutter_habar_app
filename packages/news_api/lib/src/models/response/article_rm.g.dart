@@ -8,10 +8,10 @@ part of 'article_rm.dart';
 
 ArticleRM _$ArticleRMFromJson(Map<String, dynamic> json) => ArticleRM(
       source: SourceRM.fromJson(json['source'] as Map<String, dynamic>),
-      author: json['author'] as String,
       title: json['title'] as String,
       url: json['url'] as String,
       publishedAt: json['publishedAt'] as String,
+      author: json['author'] as String?,
       description: json['description'] as String?,
       content: json['content'] as String?,
       urlToImage: json['urlToImage'] as String?,

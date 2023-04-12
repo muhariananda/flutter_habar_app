@@ -5,12 +5,12 @@ part 'source_rm.g.dart';
 @JsonSerializable(createToJson: false)
 class SourceRM {
   SourceRM({
-    required this.name,
+    this.name,
     this.id,
   });
 
+  final String? name;
   final String? id;
-  final String name;
 
   static const fromJson = _$SourceRMFromJson;
 }

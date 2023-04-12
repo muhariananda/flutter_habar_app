@@ -7,20 +7,20 @@ part 'article_rm.g.dart';
 class ArticleRM {
   ArticleRM({
     required this.source,
-    required this.author,
     required this.title,
     required this.url,
     required this.publishedAt,
+    this.author,
     this.description,
     this.content,
     this.urlToImage,
   });
 
   final SourceRM source;
-  final String author;
   final String title;
   final String url;
   final String publishedAt;
+  final String? author;
   final String? description;
   final String? content;
   final String? urlToImage;
