@@ -26,16 +26,10 @@ class NewsApi {
       category: category,
       searchTerm: searchTerm,
     );
-    
     // ignore: inference_failure_on_function_invocation
     final response = await _dio.get(url);
     final jsonObject = response.data as Map<String, dynamic>;
     final articleListPage = ArticleListPageRM.fromJson(jsonObject);
-    final aricles = articleListPage.articles;
-
-    if (aricles.isEmpty) {
-      throw EmptySearchResultNewsException();
-    }
 
     return articleListPage;
   }
