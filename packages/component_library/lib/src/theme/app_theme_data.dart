@@ -21,6 +21,12 @@ abstract class AppThemeData {
   Color get roundedChoiceChipLabelColor;
 
   Color get roundedChoiceSelectedChipLabelColor => colors.onPrimary;
+
+  Color get searchBarBackgroudColor;
+
+  Color get searchBarLabelColor;
+
+  TextTheme get text;
 }
 
 class LightAppThemeData extends AppThemeData {
@@ -30,7 +36,7 @@ class LightAppThemeData extends AppThemeData {
   @override
   ThemeData get materialThemeData => ThemeData(
         brightness: Brightness.light,
-        textTheme: AppTextTheme.light,
+        textTheme: text,
         dividerTheme: _dividerThemeData,
         primarySwatch: colors.primary.toMaterialColor(),
         scaffoldBackgroundColor: colors.background,
@@ -41,6 +47,15 @@ class LightAppThemeData extends AppThemeData {
 
   @override
   Color get roundedChoiceChipLabelColor => colors.onSurcafe;
+
+  @override
+  Color get searchBarBackgroudColor => colors.surface;
+
+  @override
+  Color get searchBarLabelColor => colors.onSurcafe;
+
+  @override
+  TextTheme get text => AppTextTheme.light;
 }
 
 class DarkAppThemeData extends AppThemeData {
@@ -50,7 +65,7 @@ class DarkAppThemeData extends AppThemeData {
   @override
   ThemeData get materialThemeData => ThemeData(
         brightness: Brightness.dark,
-        textTheme: AppTextTheme.dark,
+        textTheme: text,
         dividerTheme: _dividerThemeData,
         primarySwatch: colors.primary.toMaterialColor(),
         scaffoldBackgroundColor: colors.background,
@@ -61,6 +76,15 @@ class DarkAppThemeData extends AppThemeData {
 
   @override
   Color get roundedChoiceChipLabelColor => colors.onSurcafe;
+
+  @override
+  Color get searchBarBackgroudColor => colors.surface;
+
+  @override
+  Color get searchBarLabelColor => colors.onSurcafe;
+
+  @override
+  TextTheme get text => AppTextTheme.dark;
 }
 
 extension on Color {
