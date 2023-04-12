@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:news_api/src/models/exceptions.dart';
 import 'package:news_api/src/models/models.dart';
 import 'package:news_api/src/url_builder.dart';
 
@@ -27,6 +26,8 @@ class NewsApi {
       category: category,
       searchTerm: searchTerm,
     );
+    
+    // ignore: inference_failure_on_function_invocation
     final response = await _dio.get(url);
     final jsonObject = response.data as Map<String, dynamic>;
     final articleListPage = ArticleListPageRM.fromJson(jsonObject);
