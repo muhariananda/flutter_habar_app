@@ -9,14 +9,25 @@ environment:
 dependencies:
   component_library:
     path: packages/component_library
+  cupertino_icons: ^1.0.2
+  domain_models:
+    path: packages/domain_models
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
+  go_router: ^6.5.5
+  key_value_storage:
+    path: packages/key_value_storage
+  news_api:
+    path: packages/news_api
+  news_list:
+    path: packages/features/news_list
+  news_repository:
+    path: packages/news_repository
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  very_good_analysis: ^4.0.0+1
 
 flutter:
   uses-material-design: true
