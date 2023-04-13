@@ -1,3 +1,4 @@
+import 'package:component_library/src/l10n/component_library_localizations.dart';
 import 'package:component_library/src/theme/app_theme.dart';
 import 'package:component_library/src/theme/spacing.dart';
 import 'package:flutter/material.dart';
@@ -14,10 +15,12 @@ class RoundedSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = NewsTheme.of(context);
+    final theme = NewsTheme.of(context)!;
+    final l10n = ComponentLibraryLocalizations.of(context);
+
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: theme!.searchBarBackgroudColor,
+        color: theme.searchBarBackgroudColor,
         borderRadius: BorderRadius.circular(30),
       ),
       child: Center(
@@ -25,7 +28,7 @@ class RoundedSearchBar extends StatelessWidget {
           controller: controller,
           style: theme.text.bodySmall,
           decoration: InputDecoration(
-            hintText: 'Search',
+            hintText: l10n.searchHintText,
             border: InputBorder.none,
             prefixIcon: Icon(
               Icons.search_rounded,
