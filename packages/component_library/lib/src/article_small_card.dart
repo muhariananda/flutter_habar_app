@@ -28,7 +28,6 @@ class ArticleSmallCard extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            flex: 2,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -46,6 +45,7 @@ class ArticleSmallCard extends StatelessWidget {
               ],
             ),
           ),
+          const SizedBox(width: Spacing.small),
           SizedBox(
             width: 100,
             height: 100,
