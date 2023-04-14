@@ -3,6 +3,7 @@ import 'package:domain_models/domain_models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:news_list/news_list.dart';
 import 'package:news_list/src/bloc/news_list_bloc.dart';
 import 'package:news_list/src/widgets/filter_horizontal_list.dart';
 import 'package:news_list/src/widgets/news_page_list_view.dart';
@@ -90,6 +91,8 @@ class _NewsListViewState extends State<NewsListView> {
   @override
   Widget build(BuildContext context) {
     final theme = NewsTheme.of(context)!;
+    final l10n = NewsListLocalizations.of(context);
+
     return BlocListener<NewsListBloc, NewsListState>(
       listener: (context, state) {
         final searchBarText = _searchBarController.text;
@@ -102,9 +105,9 @@ class _NewsListViewState extends State<NewsListView> {
 
         if (state.refreshError != null) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
+            SnackBar(
               content: Text(
-                'Error',
+                l10n.newsListRefreshErrorMessage,
               ),
             ),
           );
@@ -131,12 +134,12 @@ class _NewsListViewState extends State<NewsListView> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Discover',
+                          l10n.listHeader,
                           style: theme.text.titleLarge,
                         ),
                         const SizedBox(height: Spacing.small),
                         Text(
-                          'Read news all around the world',
+                          l10n.listSubHeader,
                           style: theme.text.labelMedium,
                         )
                       ],

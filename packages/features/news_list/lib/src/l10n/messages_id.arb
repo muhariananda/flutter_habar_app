@@ -1,0 +1,12 @@
+{
+    "newsListRefreshErrorMessage": "Tidak dapat memuat ulang item.\nSilahkan, cek koneksi internet anda dan ulangi kembali nanti.",
+    "listHeader": "Berita harian anda",
+    "listSubHeader": "Jelahi berbagai macam berita terkini.",
+    "allLabel": "Semua",
+    "businessLabel": "Bisnis",
+    "healthLabel": "Kesehatan",
+    "scienceLabel": "Pengetahun",
+    "sportsLabel": "Olahraga",
+    "technologyLabel": "Teknologi",
+    "entertainmentLabel": "Hiburan"
+}

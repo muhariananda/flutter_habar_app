@@ -1,0 +1,12 @@
+{
+    "newsListRefreshErrorMessage": "We couldn't refresh your items.\nPlease, check your internet connection and try again later.",
+    "listHeader": "Your daily brief",
+    "listSubHeader": "browse all the latest news.",
+    "allLabel": "All",
+    "businessLabel": "Business",
+    "healthLabel": "Health",
+    "scienceLabel": "Science",
+    "sportsLabel": "Sports",
+    "technologyLabel": "Technology",
+    "entertainmentLabel": "Entertainment"
+}
