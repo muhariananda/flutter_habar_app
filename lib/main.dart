@@ -42,6 +42,13 @@ class _NewsAppState extends State<NewsApp> {
         darkTheme: _darkTheme.materialThemeData,
         routerDelegate: _route.routerDelegate,
         routeInformationParser: _route.routeInformationParser,
+        supportedLocales: const [
+          Locale('en', ''),
+          Locale('id', ''),
+        ],
+        localizationsDelegates: const [
+          ComponentLibraryLocalizations.delegate
+        ],
       ),
     );
   }
