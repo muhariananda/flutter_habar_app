@@ -6,6 +6,8 @@ environment:
 
 dependencies:
   bloc_concurrency: ^0.2.1
+  component_library:
+    path: ../../component_library
   domain_models:
     path: ../../domain_models
   equatable: ^2.0.5
