@@ -3,7 +3,7 @@ class UrlBuilder {
     String? baseUrl,
   }) : _baseUrl = baseUrl ?? 'https://newsapi.org/v2';
 
-  static const _countryCode = 'id';
+  static const _countryCode = 'us';
   static const _pageSize = 20;
 
   final String _baseUrl;
