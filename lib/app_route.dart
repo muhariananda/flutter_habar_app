@@ -11,7 +11,9 @@ GoRouter configureRoutes({
           path: _PathConstants.tabConatinerPath,
           builder: (context, state) => NewsListScreen(
             newsRepository: newsRepository,
-            //TODO : Add detail route
+            onArticleSelected: (selectedArticle) {
+              // ! TODO : Add Route to Detail Screen
+            },
           ),
         )
       ],
