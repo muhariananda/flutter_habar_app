@@ -46,6 +46,7 @@ class NewsListView extends StatefulWidget {
 }
 
 class _NewsListViewState extends State<NewsListView> {
+  final ScrollController _scrollController = ScrollController();
   final PagingController<int, Article> _pagingController = PagingController(
     firstPageKey: 1,
   );
@@ -80,6 +81,7 @@ class _NewsListViewState extends State<NewsListView> {
 
   @override
   void dispose() {
+    _scrollController.dispose();
     _pagingController.dispose();
     _searchBarController.dispose();
     super.dispose();
@@ -114,38 +116,80 @@ class _NewsListViewState extends State<NewsListView> {
         child: Scaffold(
           body: GestureDetector(
             onTap: () => _releaseFocus(context),
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: theme.screenMargin,
-                  ),
-                  child: RoundedSearchBar(
-                    controller: _searchBarController,
-                  ),
-                ),
-                const FilterHorizontalList(),
-                Expanded(
-                  child: RefreshIndicator(
-                    onRefresh: () {
-                      _bloc.add(
-                        const NewsListRefreshed(),
-                      );
-                      final stateChangeFuture = _bloc.stream.first;
-                      return stateChangeFuture;
-                    },
-                    child: NewsPageListView(
-                      pagingController: _pagingController,
-                      onArticleSelected: widget.onArticleSelected,
+            child: NestedScrollView(
+              controller: _scrollController,
+              headerSliverBuilder: (context, _) => [
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: theme.screenMargin,
+                      right: theme.screenMargin,
+                      top: Spacing.xxLarge,
+                      bottom: Spacing.medium,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Discover',
+                          style: theme.text.titleLarge,
+                        ),
+                        const SizedBox(height: Spacing.small),
+                        Text(
+                          'Read news all around the world',
+                          style: theme.text.labelMedium,
+                        )
+                      ],
                     ),
                   ),
-                )
+                ),
+                SliverAppBar(
+                  floating: true,
+                  snap: true,
+                  backgroundColor: theme.colors.background,
+                  bottom: PreferredSize(
+                    preferredSize: const Size.fromHeight(100),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 16,
+                      ),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: theme.screenMargin,
+                            ),
+                            child: RoundedSearchBar(
+                              controller: _searchBarController,
+                            ),
+                          ),
+                          const FilterHorizontalList(),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ],
+              body: RefreshIndicator(
+                onRefresh: _onRefresh,
+                child: NewsPageListView(
+                  pagingController: _pagingController,
+                  onArticleSelected: widget.onArticleSelected,
+                ),
+              ),
             ),
           ),
         ),
       ),
     );
+  }
+
+  Future<void> _onRefresh() {
+    _bloc.add(
+      const NewsListRefreshed(),
+    );
+    final stateChangeFuture = _bloc.stream.first;
+    return stateChangeFuture;
   }
 
   void _releaseFocus(BuildContext context) => FocusScope.of(context).unfocus();
