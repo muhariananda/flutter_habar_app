@@ -19,13 +19,20 @@ class KeyValueStorage {
     }
   }
 
-  static const _articleListPagesBoxKey = 'article-list-page';
+  static const _articleListPageBoxKey = 'article-list-page';
+  static const _bookmarkArticleListPageBoxKey = 'bookmark-article-list-page';
 
   final HiveInterface _hive;
 
   Future<Box<ArticleListPageCM>> get articleListPageBox =>
       _openHiveBox<ArticleListPageCM>(
-        _articleListPagesBoxKey,
+        _articleListPageBoxKey,
+        isTempoary: true,
+      );
+
+  Future<Box<ArticleListPageCM>> get bookmarkArticleListPage =>
+      _openHiveBox<ArticleListPageCM>(
+        _bookmarkArticleListPageBoxKey,
         isTempoary: true,
       );
 
