@@ -27,4 +27,19 @@ class NewsLocalStorage {
     final box = await keyValueStorage.articleListPageBox;
     return box.get(pageNumber);
   }
+
+  Future<void> insertArticle(ArticleCM article) async {
+    final box = await keyValueStorage.bookmarkArticles;
+    return box.put(article.url, article);
+  }
+
+  Future<void> removeArticle(String url) async {
+    final box = await keyValueStorage.bookmarkArticles;
+    return box.delete(url);
+  }
+
+  Future<ArticleCM?> getArticle(String url) async {
+    final box = await keyValueStorage.bookmarkArticles;
+    return box.get(url);
+  }
 }
