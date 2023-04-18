@@ -2,6 +2,7 @@ import 'package:component_library/component_library.dart';
 import 'package:domain_models/domain_models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:news_detail/news_detail.dart';
 import 'package:news_detail/src/cubit/news_detail_cubit.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -22,6 +23,7 @@ class NewsDetailActionBar extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     final theme = NewsTheme.of(context)!;
+    final l10n = NewsDetailLocalizations.of(context);
     final cubit = context.read<NewsDetailCubit>();
 
     return BlocBuilder<NewsDetailCubit, NewsDetailState>(
@@ -67,7 +69,9 @@ class NewsDetailActionBar extends StatelessWidget
                       ..showSnackBar(
                         SnackBar(
                           content: Text(
-                            !isBookmark ? 'Bookmark' : 'Unbookmark',
+                            !isBookmark
+                                ? l10n.bookmarkedMessage
+                                : l10n.unbookmarkMessage,
                             style: theme.text.bodySmall,
                           ),
                           backgroundColor: theme.colors.background,
