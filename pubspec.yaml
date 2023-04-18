@@ -19,6 +19,8 @@ dependencies:
     path: packages/key_value_storage
   news_api:
     path: packages/news_api
+  news_detail:
+    path: packages/features/news_detail
   news_list:
     path: packages/features/news_list
   news_repository:
