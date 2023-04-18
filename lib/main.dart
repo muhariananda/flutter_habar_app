@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_news_app/app_route.dart';
 import 'package:key_value_storage/key_value_storage.dart';
 import 'package:news_api/news_api.dart';
+import 'package:news_detail/news_detail.dart';
 import 'package:news_list/news_list.dart';
 import 'package:news_repository/news_repository.dart';
 
@@ -50,6 +51,7 @@ class _NewsAppState extends State<NewsApp> {
         localizationsDelegates: const [
           ComponentLibraryLocalizations.delegate,
           NewsListLocalizations.delegate,
+          NewsDetailLocalizations.delegate,
         ],
       ),
     );
