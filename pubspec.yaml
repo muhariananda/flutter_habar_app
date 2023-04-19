@@ -14,7 +14,6 @@ dependencies:
     path: packages/domain_models
   flutter:
     sdk: flutter
-  go_router: ^6.5.5
   key_value_storage:
     path: packages/key_value_storage
   news_api:
@@ -25,6 +24,7 @@ dependencies:
     path: packages/features/news_list
   news_repository:
     path: packages/news_repository
+  salomon_bottom_bar: ^3.3.2
 
 dev_dependencies:
   flutter_test:

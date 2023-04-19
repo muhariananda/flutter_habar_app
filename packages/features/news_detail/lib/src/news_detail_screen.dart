@@ -1,6 +1,3 @@
-import 'dart:developer';
-
-import 'package:component_library/component_library.dart';
 import 'package:domain_models/domain_models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,6 +12,8 @@ class NewsDetailScreen extends StatelessWidget {
     required this.newsRepository,
     super.key,
   });
+
+  static const routeName = '/detail';
 
   final Article article;
   final NewsRepository newsRepository;

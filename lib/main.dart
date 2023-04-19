@@ -27,7 +27,7 @@ class _NewsAppState extends State<NewsApp> {
     remoteApi: _newsApi,
   );
 
-  late final _route = configureRoutes(
+  late final _routes = buildAppRoutes(
     newsRepository: _newsRepository,
   );
 
@@ -39,11 +39,10 @@ class _NewsAppState extends State<NewsApp> {
     return NewsTheme(
       lighTheme: _lightTheme,
       darkTheme: _darkTheme,
-      child: MaterialApp.router(
+      child: MaterialApp(
         theme: _lightTheme.materialThemeData,
         darkTheme: _darkTheme.materialThemeData,
-        routerDelegate: _route.routerDelegate,
-        routeInformationParser: _route.routeInformationParser,
+        routes: _routes,
         supportedLocales: const [
           Locale('en', ''),
           Locale('id', ''),
