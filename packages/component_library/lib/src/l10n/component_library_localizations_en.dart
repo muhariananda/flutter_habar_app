@@ -5,6 +5,9 @@ class ComponentLibraryLocalizationsEn extends ComponentLibraryLocalizations {
   ComponentLibraryLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get emptyItemsMessage => 'You don\'t have bookmarks yet';
+
+  @override
   String get emptyResultTitle => 'No news found';
 
   @override

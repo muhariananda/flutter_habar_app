@@ -5,6 +5,9 @@ class ComponentLibraryLocalizationsId extends ComponentLibraryLocalizations {
   ComponentLibraryLocalizationsId([String locale = 'id']) : super(locale);
 
   @override
+  String get emptyItemsMessage => 'Kamu belum memiliki berita yang ditandai';
+
+  @override
   String get emptyResultTitle => 'Tidak ada berita yang ditemukan';
 
   @override

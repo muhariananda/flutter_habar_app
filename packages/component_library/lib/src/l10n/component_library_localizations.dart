@@ -93,6 +93,12 @@ abstract class ComponentLibraryLocalizations {
     Locale('id')
   ];
 
+  /// No description provided for @emptyItemsMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'You don\'t have bookmarks yet'**
+  String get emptyItemsMessage;
+
   /// No description provided for @emptyResultTitle.
   ///
   /// In en, this message translates to:

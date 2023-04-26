@@ -1,14 +1,12 @@
 import 'package:component_library/component_library.dart';
 import 'package:flutter/material.dart';
 
-class EmptyResultIndicator extends StatelessWidget {
-  const EmptyResultIndicator({
-    this.title,
+class EmptyItemsIndicator extends StatelessWidget {
+  const EmptyItemsIndicator({
     this.message,
     super.key,
   });
 
-  final String? title;
   final String? message;
 
   @override
@@ -30,13 +28,9 @@ class EmptyResultIndicator extends StatelessWidget {
               size: 75,
               color: theme.colors.surface,
             ),
+            const SizedBox(height: Spacing.mediumLarge),
             Text(
-              title ?? l10n.emptyResultTitle,
-              textAlign: TextAlign.center,
-              style: theme.text.titleMedium,
-            ),
-            Text(
-              message ?? l10n.emptyResultMessage,
+              message ?? l10n.emptyItemsMessage,
               textAlign: TextAlign.center,
               style: theme.text.bodySmall,
             ),

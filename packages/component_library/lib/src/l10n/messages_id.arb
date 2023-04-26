@@ -1,4 +1,5 @@
 {
+    "emptyItemsMessage": "Kamu belum memiliki berita yang ditandai",
     "emptyResultTitle": "Tidak ada berita yang ditemukan",
     "emptyResultMessage": "Silahkan untuk masukkan kata kunci yang lain.",
     "exceptionIndicatorTitle": "Opps terdapat kesalahan",

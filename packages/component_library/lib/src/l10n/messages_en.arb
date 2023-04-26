@@ -1,4 +1,5 @@
 {
+    "emptyItemsMessage": "You don't have bookmarks yet",
     "emptyResultTitle": "No news found",
     "emptyResultMessage": "Please look for another search.",
     "exceptionIndicatorTitle": "Opps there is something wrong",
