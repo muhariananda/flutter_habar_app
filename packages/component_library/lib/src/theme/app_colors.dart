@@ -11,6 +11,8 @@ abstract class AppColors {
 
   Color get onBackground;
 
+  Color get onBackgroundLinear;
+
   Color get onSurcafe;
 }
 
@@ -26,6 +28,9 @@ class LightColors extends AppColors {
 
   @override
   Color get surface => const Color(0xFFF1F2F6);
+
+  @override
+  Color get onBackgroundLinear => const Color.fromARGB(0, 255, 255, 255);
 }
 
 class DarkColors extends AppColors {
@@ -36,8 +41,11 @@ class DarkColors extends AppColors {
   Color get onBackground => Colors.white;
 
   @override
-  Color get onSurcafe => const Color(0xFFA4B0BE);
+  Color get onSurcafe => const Color(0xFF7E7E7E);
 
   @override
-  Color get surface => const Color(0xFF2F3542);
+  Color get surface => const Color(0xFF1D1D1D);
+
+  @override
+  Color get onBackgroundLinear => Colors.transparent;
 }
