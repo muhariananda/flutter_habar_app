@@ -112,6 +112,12 @@ class NewsRepository {
     }
   }
 
+  Stream<ArticleListPage> watchArticles() async* {
+    yield* _localStorage
+        .watchArticles()
+        .map((cachePage) => cachePage.toDomainModel());
+  }
+
   Future<void> bookmarkArticle(Article article) async {
     final bookmarkArticle = article.toCacheModel();
     await _localStorage.insertArticle(bookmarkArticle);

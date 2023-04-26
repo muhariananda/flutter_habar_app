@@ -42,4 +42,30 @@ class NewsLocalStorage {
     final box = await keyValueStorage.bookmarkArticles;
     return box.get(url);
   }
+
+  Stream<ArticleListPageCM> watchArticles() async* {
+    final box = await keyValueStorage.bookmarkArticles;
+
+    final articles = box.values;
+    yield ArticleListPageCM(
+      totalResults: articles.length,
+      articles: articles.reversedArticlesToList(),
+    );
+
+    yield* box.watch().map(
+      (_) {
+        final newArticles = box.values;
+        return ArticleListPageCM(
+          totalResults: newArticles.length,
+          articles: newArticles.reversedArticlesToList(),
+        );
+      },
+    );
+  }
+}
+
+extension on Iterable<ArticleCM> {
+  List<ArticleCM> reversedArticlesToList() {
+    return toList().reversed.toList();
+  }
 }
