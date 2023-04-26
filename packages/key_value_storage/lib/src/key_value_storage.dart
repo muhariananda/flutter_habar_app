@@ -10,7 +10,8 @@ class KeyValueStorage {
       _hive
         ..registerAdapter(ArticleListPageCMAdapter())
         ..registerAdapter(ArticleCMAdapter())
-        ..registerAdapter(SourceCMAdapter());
+        ..registerAdapter(SourceCMAdapter())
+        ..registerAdapter(DarkModePreferenceCMAdapter());
     } catch (_) {
       throw Exception(
         "You shouldn't have more than one [KeyValueStorage] instance in your "
@@ -21,6 +22,7 @@ class KeyValueStorage {
 
   static const _articleListPageBoxKey = 'article-list-page';
   static const _bookmarkArticlesBoxKey = 'bookmark-articles';
+  static const _darkModePreferenceBoxKey = 'dark-mode-preference';
 
   final HiveInterface _hive;
 
@@ -33,6 +35,12 @@ class KeyValueStorage {
   Future<Box<ArticleCM>> get bookmarkArticles => _openHiveBox<ArticleCM>(
         _bookmarkArticlesBoxKey,
         isTempoary: true,
+      );
+
+  Future<Box<DarkModePreferenceCM>> get darkModePreference =>
+      _openHiveBox<DarkModePreferenceCM>(
+        _darkModePreferenceBoxKey,
+        isTempoary: false,
       );
 
   Future<Box<T>> _openHiveBox<T>(
