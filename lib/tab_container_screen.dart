@@ -1,3 +1,4 @@
+import 'package:bookmarks/bookmarks.dart';
 import 'package:component_library/component_library.dart';
 import 'package:domain_models/domain_models.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,6 @@ class _TabContainerScreenState extends State<TabContainerScreen> {
   @override
   void initState() {
     super.initState();
-    
     _tabs
       ..add(
         NewsListScreen(
@@ -39,8 +39,9 @@ class _TabContainerScreenState extends State<TabContainerScreen> {
         ),
       )
       ..add(
-        Container(
-          color: Colors.blue,
+        BookmarksScreen(
+          newsRepository: widget.newsRepository,
+          onSelectedArticle: widget.onItemSelected,
         ),
       )
       ..add(
@@ -54,45 +55,47 @@ class _TabContainerScreenState extends State<TabContainerScreen> {
   Widget build(BuildContext context) {
     final theme = NewsTheme.of(context)!;
 
-    return Scaffold(
-      body: IndexedStack(
-        index: _currentIndex,
-        children: _tabs,
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: Spacing.large,
+    return SafeArea(
+      child: Scaffold(
+        body: IndexedStack(
+          index: _currentIndex,
+          children: _tabs,
         ),
-        child: SalomonBottomBar(
-          currentIndex: _currentIndex,
-          onTap: _onItemTapped,
-          selectedItemColor: theme.colors.primary,
-          items: [
-            SalomonBottomBarItem(
-              icon: const Icon(
-                Icons.home_rounded,
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: Spacing.large,
+          ),
+          child: SalomonBottomBar(
+            currentIndex: _currentIndex,
+            onTap: _onItemTapped,
+            selectedItemColor: theme.colors.primary,
+            items: [
+              SalomonBottomBarItem(
+                icon: const Icon(
+                  Icons.home_rounded,
+                ),
+                title: const Text(
+                  'Home',
+                ),
               ),
-              title: const Text(
-                'Home',
+              SalomonBottomBarItem(
+                icon: const Icon(
+                  Icons.bookmark_rounded,
+                ),
+                title: const Text(
+                  'Bookmarks',
+                ),
               ),
-            ),
-            SalomonBottomBarItem(
-              icon: const Icon(
-                Icons.bookmark_rounded,
+              SalomonBottomBarItem(
+                icon: const Icon(
+                  Icons.settings_rounded,
+                ),
+                title: const Text(
+                  'Settings',
+                ),
               ),
-              title: const Text(
-                'Bookmarks',
-              ),
-            ),
-            SalomonBottomBarItem(
-              icon: const Icon(
-                Icons.settings_rounded,
-              ),
-              title: const Text(
-                'Settings',
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
