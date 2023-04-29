@@ -1,4 +1,0 @@
-enum LocalizationPreference {
-  en,
-  id,
-}
