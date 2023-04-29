@@ -13,3 +13,14 @@ extension DarkModePreferenceCMtoDomain on DarkModePreferenceCM {
     }
   }
 }
+
+extension LanguagePreferenceCMtoDomain on LanguagePreferenceCM {
+  LanguagePreference toDomainModel() {
+    switch (this) {
+      case LanguagePreferenceCM.en:
+        return LanguagePreference.en;
+      case LanguagePreferenceCM.id:
+        return LanguagePreference.id;
+    }
+  }
+}

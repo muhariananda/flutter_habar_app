@@ -13,3 +13,14 @@ extension DarkModePreferenceToCM on DarkModePreference {
     }
   }
 }
+
+extension LanguagePreferenceToCM on LanguagePreference {
+  LanguagePreferenceCM toCacheModel() {
+    switch (this) {
+      case LanguagePreference.en:
+        return LanguagePreferenceCM.en;
+      case LanguagePreference.id:
+        return LanguagePreferenceCM.id;
+    }
+  }
+}

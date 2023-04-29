@@ -18,4 +18,16 @@ class SettingsLocalStorage {
     final box = await keyValueStorage.darkModePreference;
     return box.get(0);
   }
+
+  Future<void> upsertLanguagePreference(
+    LanguagePreferenceCM preference,
+  ) async {
+    final box = await keyValueStorage.languagePreference;
+    await box.put(0, preference);
+  }
+
+  Future<LanguagePreferenceCM?> getLanguagePreference() async {
+    final box = await keyValueStorage.languagePreference;
+    return box.get(0);
+  }
 }
