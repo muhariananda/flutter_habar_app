@@ -1,18 +1,7 @@
 part of 'settings_bloc.dart';
 
-abstract class SettingsState extends Equatable {
-  const SettingsState();
-
-  @override
-  List<Object?> get props => [];
-}
-
-class SettingsInProgress extends SettingsState {
-  const SettingsInProgress();
-}
-
-class SettingsLoaded extends SettingsState {
-  const SettingsLoaded({
+class SettingsState extends Equatable {
+  const SettingsState({
     this.darkModePreference = DarkModePreference.useSystemSettings,
     this.languagePreference = LanguagePreference.en,
   });
@@ -20,13 +9,19 @@ class SettingsLoaded extends SettingsState {
   final DarkModePreference darkModePreference;
   final LanguagePreference languagePreference;
 
-  SettingsLoaded copyWith({
+  SettingsState copyWith({
     DarkModePreference? darkModePreference,
     LanguagePreference? languagePreference,
   }) {
-    return SettingsLoaded(
+    return SettingsState(
       darkModePreference: darkModePreference ?? this.darkModePreference,
       languagePreference: languagePreference ?? this.languagePreference,
     );
   }
+
+  @override
+  List<Object> get props => [
+        darkModePreference,
+        languagePreference,
+      ];
 }

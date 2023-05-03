@@ -11,16 +11,16 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   SettingsBloc({
     required this.settingsRepository,
   }) : super(
-          const SettingsInProgress(),
+          const SettingsState(),
         ) {
     on<SettingsStarted>(
       (_, emit) async {
         await emit.onEach(
           Rx.combineLatest2<DarkModePreference, LanguagePreference,
-              SettingsLoaded>(
+              SettingsState>(
             settingsRepository.getDarkModePreference(),
             settingsRepository.getLanguagePreference(),
-            (darkModePreference, languagePreference) => SettingsLoaded(
+            (darkModePreference, languagePreference) => SettingsState(
               darkModePreference: darkModePreference,
               languagePreference: languagePreference,
             ),
@@ -34,9 +34,15 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     );
 
     on<SettingsDarkModePreferenceChanged>(
-      (event, _) async {
+      (event, emit) async {
         await settingsRepository.upsertDarkModePreference(
           event.preference,
+        );
+
+        emit(
+          state.copyWith(
+            darkModePreference: event.preference,
+          ),
         );
       },
     );
@@ -46,7 +52,17 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
         await settingsRepository.upsertLanguagePreference(
           event.preference,
         );
+
+        emit(
+          state.copyWith(
+            languagePreference: event.preference,
+          ),
+        );
       },
+    );
+
+    add(
+      const SettingsStarted(),
     );
   }
 
