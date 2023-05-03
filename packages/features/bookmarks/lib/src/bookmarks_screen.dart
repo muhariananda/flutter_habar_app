@@ -60,9 +60,9 @@ class BookmarksView extends StatelessWidget {
               },
               itemBuilder: (BuildContext context, int index) {
                 final article = articles[index];
-                return ArticleSmallCard(
+                return ArticleCardInSmall(
                   title: article.title,
-                  author: article.author,
+                  source: article.source.name,
                   publishedAt: article.publishedAt,
                   imageUrl: article.urlToImage,
                   onTap: () {
