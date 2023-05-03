@@ -2,15 +2,19 @@ import 'package:bookmarks/bookmarks.dart';
 import 'package:component_library/component_library.dart';
 import 'package:domain_models/domain_models.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_news_app/l10n/app_localizations.dart';
 import 'package:news_list/news_list.dart';
 import 'package:news_repository/news_repository.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+import 'package:settings/settings.dart';
+import 'package:settings_repository/settings_repository.dart';
 
 typedef ItemSelected = void Function(Article article);
 
 class TabContainerScreen extends StatefulWidget {
   const TabContainerScreen({
     required this.newsRepository,
+    required this.settingsRepository,
     this.onItemSelected,
     super.key,
   });
@@ -18,6 +22,7 @@ class TabContainerScreen extends StatefulWidget {
   static const routeName = '/';
 
   final NewsRepository newsRepository;
+  final SettingsRepository settingsRepository;
   final ItemSelected? onItemSelected;
 
   @override
@@ -45,8 +50,8 @@ class _TabContainerScreenState extends State<TabContainerScreen> {
         ),
       )
       ..add(
-        Container(
-          color: Colors.red,
+        SettingsScreen(
+          settingsRepository: widget.settingsRepository,
         ),
       );
   }
@@ -54,6 +59,7 @@ class _TabContainerScreenState extends State<TabContainerScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = NewsTheme.of(context)!;
+    final l10n = AppLocalizations.of(context);
     return SafeArea(
       child: Scaffold(
         body: Stack(
@@ -99,24 +105,24 @@ class _TabContainerScreenState extends State<TabContainerScreen> {
               icon: const Icon(
                 Icons.home_rounded,
               ),
-              title: const Text(
-                'Home',
+              title: Text(
+                l10n.homeLabelInBottomNav,
               ),
             ),
             SalomonBottomBarItem(
               icon: const Icon(
                 Icons.bookmark_rounded,
               ),
-              title: const Text(
-                'Bookmarks',
+              title: Text(
+                l10n.bookmarkLabelInBottomNav,
               ),
             ),
             SalomonBottomBarItem(
               icon: const Icon(
                 Icons.settings_rounded,
               ),
-              title: const Text(
-                'Settings',
+              title: Text(
+                l10n.settingsLabelInBottomNav,
               ),
             ),
           ],

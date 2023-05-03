@@ -10,7 +10,7 @@ packages:
     source: hosted
     version: "2.4.0"
   async:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: async
       sha256: bfe67ef28df125b7dddcea62755991f807aa39a2492a23e1550161692950bbe0
@@ -220,7 +220,7 @@ packages:
     source: hosted
     version: "5.7.2+3"
   flutter_localizations:
-    dependency: transitive
+    dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
@@ -502,7 +502,7 @@ packages:
     source: hosted
     version: "6.0.5"
   rxdart:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: rxdart
       sha256: "0c7c0cedd93788d996e33041ffecda924cc54389199cde4e6a34b440f50044cb"
@@ -517,6 +517,20 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.3.2"
+  settings:
+    dependency: "direct main"
+    description:
+      path: "packages/features/settings"
+      relative: true
+    source: path
+    version: "0.0.0"
+  settings_repository:
+    dependency: "direct main"
+    description:
+      path: "packages/settings_repository"
+      relative: true
+    source: path
+    version: "0.0.0"
   share_plus:
     dependency: transitive
     description:

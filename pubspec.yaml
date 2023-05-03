@@ -7,6 +7,7 @@ environment:
   sdk: '>=2.19.4 <3.0.0'
 
 dependencies:
+  async: ^2.10.0
   bookmarks:
     path: packages/features/bookmarks
   component_library:
@@ -15,6 +16,8 @@ dependencies:
   domain_models:
     path: packages/domain_models
   flutter:
+    sdk: flutter
+  flutter_localizations:
     sdk: flutter
   key_value_storage:
     path: packages/key_value_storage
@@ -26,7 +29,12 @@ dependencies:
     path: packages/features/news_list
   news_repository:
     path: packages/news_repository
+  rxdart: ^0.27.7
   salomon_bottom_bar: ^3.3.2
+  settings:
+    path: packages/features/settings
+  settings_repository:
+    path: packages/settings_repository
 
 dev_dependencies:
   flutter_test:
