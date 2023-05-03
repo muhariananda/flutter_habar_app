@@ -36,7 +36,6 @@ class _Chip extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = NewsTheme.of(context)!;
     final l10n = NewsListLocalizations.of(context);
-
     return Padding(
       padding: EdgeInsets.only(
         left: theme.screenMargin,
@@ -75,7 +74,6 @@ class _CategoryChip extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = NewsTheme.of(context)!;
     final isLastCategory = Category.values.last == category;
-
     return Padding(
       padding: EdgeInsets.only(
         left: _itemSpacing,

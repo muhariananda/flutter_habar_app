@@ -21,7 +21,6 @@ class NewsPageListView extends StatelessWidget {
     final theme = NewsTheme.of(context)!;
     final bloc = context.read<NewsListBloc>();
     final onArticleSelected = this.onArticleSelected;
-
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: theme.screenMargin,
@@ -30,33 +29,25 @@ class NewsPageListView extends StatelessWidget {
         pagingController: pagingController,
         builderDelegate: PagedChildBuilderDelegate<Article>(
           itemBuilder: (context, article, index) {
-            if (index == 0 || index % 10 == 0) {
-              return ArticleLargeCard(
+            final isIndexInMultiplesOfTen = index == 0 || index % 10 == 0;
+            if (isIndexInMultiplesOfTen) {
+              return ArticleCardInLarge(
                 title: article.title,
-                author: article.author,
+                source: article.source.name,
                 publishedAt: article.publishedAt,
                 imageUrl: article.urlToImage,
-                onTap: () {
-                  if (onArticleSelected != null) {
-                    onArticleSelected(article);
-                  }
-                },
+                onTap: () => onArticleSelected?.call(article),
               );
             } else {
-              return ArticleSmallCard(
+              return ArticleCardInSmall(
                 title: article.title,
-                author: article.author,
+                source: article.source.name,
                 publishedAt: article.publishedAt,
                 imageUrl: article.urlToImage,
-                onTap: () {
-                  if (onArticleSelected != null) {
-                    onArticleSelected(article);
-                  }
-                },
+                onTap: () => onArticleSelected?.call(article),
               );
             }
           },
-          noItemsFoundIndicatorBuilder: (_) => const EmptyResultIndicator(),
           firstPageErrorIndicatorBuilder: (_) => ExceptionIndicator(
             onTryAgain: () {
               bloc.add(
@@ -64,6 +55,7 @@ class NewsPageListView extends StatelessWidget {
               );
             },
           ),
+          noItemsFoundIndicatorBuilder: (_) => const EmptyResultIndicator(),
         ),
         separatorBuilder: (context, index) {
           return const SizedBox(height: Spacing.xLarge);
