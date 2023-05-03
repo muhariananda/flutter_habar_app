@@ -19,33 +19,28 @@ class DarkModePreferencePicker extends StatelessWidget {
     final l10n = SettingsLocalizations.of(context);
     final bloc = context.read<SettingsBloc>();
 
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: theme.screenMargin,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            l10n.themeModeTitle,
-            style: theme.text.titleMedium,
-          ),
-          const SizedBox(height: Spacing.medium),
-          ...getRadioTileList(context).map(
-            (tile) => RadioListTile<DarkModePreference>(
-              activeColor: theme.colors.primary,
-              value: tile.preference,
-              groupValue: currentValue,
-              onChanged: (newOption) =>
-                  _handleDarkModePreferenceChanged(bloc, newOption),
-              title: Text(
-                tile.title,
-                style: theme.text.titleSmall,
-              ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          l10n.themeModeTitle,
+          style: theme.text.titleMedium,
+        ),
+        const SizedBox(height: Spacing.medium),
+        ...getRadioTileList(context).map(
+          (tile) => RadioListTile<DarkModePreference>(
+            activeColor: theme.colors.primary,
+            value: tile.preference,
+            groupValue: currentValue,
+            onChanged: (newOption) =>
+                _handleDarkModePreferenceChanged(bloc, newOption),
+            title: Text(
+              tile.title,
+              style: theme.text.titleSmall,
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 

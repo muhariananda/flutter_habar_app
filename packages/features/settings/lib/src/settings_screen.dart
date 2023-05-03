@@ -30,20 +30,27 @@ class SettingsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = NewsTheme.of(context)!;
     return Scaffold(
       body: SafeArea(
         child: BlocBuilder<SettingsBloc, SettingsState>(
           builder: (context, state) {
-            return Column(
-              children: [
-                LanguagePreferenceSelector(
-                  currentValue: state.languagePreference,
-                ),
-                const SizedBox(height: Spacing.large),
-                DarkModePreferencePicker(
-                  currentValue: state.darkModePreference,
-                ),
-              ],
+            return Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: theme.screenMargin,
+                vertical: Spacing.mediumLarge,
+              ),
+              child: Column(
+                children: [
+                  LanguagePreferenceSelector(
+                    currentValue: state.languagePreference,
+                  ),
+                  const SizedBox(height: Spacing.large),
+                  DarkModePreferencePicker(
+                    currentValue: state.darkModePreference,
+                  ),
+                ],
+              ),
             );
           },
         ),

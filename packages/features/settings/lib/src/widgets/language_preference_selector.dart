@@ -18,26 +18,24 @@ class LanguagePreferenceSelector extends StatelessWidget {
     final bloc = context.read<SettingsBloc>();
     final l10n = SettingsLocalizations.of(context);
     final theme = NewsTheme.of(context)!;
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: theme.screenMargin,
+    return DropdownButtonFormField<LanguagePreference>(
+      decoration: InputDecoration(
+        labelText: l10n.languageTitle,
+        border: const OutlineInputBorder(),
       ),
-      child: DropdownButtonFormField<LanguagePreference>(
-        decoration: InputDecoration(
-          labelText: l10n.languageTitle,
-          border: const OutlineInputBorder(),
-        ),
-        value: currentValue,
-        onChanged: (value) => _handleLanguagePreferenceChanged(bloc, value),
-        items: items
-            .map(
-              (item) => DropdownMenuItem<LanguagePreference>(
-                value: item.preference,
-                child: Text(item.title),
+      value: currentValue,
+      onChanged: (value) => _handleLanguagePreferenceChanged(bloc, value),
+      items: items
+          .map(
+            (item) => DropdownMenuItem<LanguagePreference>(
+              value: item.preference,
+              child: Text(
+                item.title,
+                style: theme.text.labelLarge,
               ),
-            )
-            .toList(),
-      ),
+            ),
+          )
+          .toList(),
     );
   }
 
