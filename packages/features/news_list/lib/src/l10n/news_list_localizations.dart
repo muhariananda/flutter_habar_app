@@ -102,13 +102,13 @@ abstract class NewsListLocalizations {
   /// No description provided for @listHeader.
   ///
   /// In en, this message translates to:
-  /// **'Your daily brief'**
+  /// **'Today\'s Headlines'**
   String get listHeader;
 
   /// No description provided for @listSubHeader.
   ///
   /// In en, this message translates to:
-  /// **'browse all the latest news.'**
+  /// **'Latest news across categories'**
   String get listSubHeader;
 
   /// No description provided for @allLabel.

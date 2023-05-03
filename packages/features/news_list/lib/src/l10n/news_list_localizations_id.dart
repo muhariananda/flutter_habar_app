@@ -8,10 +8,10 @@ class NewsListLocalizationsId extends NewsListLocalizations {
   String get newsListRefreshErrorMessage => 'Tidak dapat memuat ulang item.\nSilahkan, cek koneksi internet anda dan ulangi kembali nanti.';
 
   @override
-  String get listHeader => 'Berita harian anda';
+  String get listHeader => 'Utama Hari Ini';
 
   @override
-  String get listSubHeader => 'Jelahi berbagai macam berita terkini.';
+  String get listSubHeader => 'Selalu up-to-date dengan berita terpopuler';
 
   @override
   String get allLabel => 'Semua';

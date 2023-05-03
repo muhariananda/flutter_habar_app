@@ -1,7 +1,7 @@
 {
     "newsListRefreshErrorMessage": "Tidak dapat memuat ulang item.\nSilahkan, cek koneksi internet anda dan ulangi kembali nanti.",
-    "listHeader": "Berita harian anda",
-    "listSubHeader": "Jelahi berbagai macam berita terkini.",
+    "listHeader": "Utama Hari Ini",
+    "listSubHeader": "Selalu up-to-date dengan berita terpopuler",
     "allLabel": "Semua",
     "businessLabel": "Bisnis",
     "healthLabel": "Kesehatan",

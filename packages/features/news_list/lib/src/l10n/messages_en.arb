@@ -1,7 +1,7 @@
 {
     "newsListRefreshErrorMessage": "We couldn't refresh your items.\nPlease, check your internet connection and try again later.",
-    "listHeader": "Your daily brief",
-    "listSubHeader": "browse all the latest news.",
+    "listHeader": "Today's Headlines",
+    "listSubHeader": "Latest news across categories",
     "allLabel": "All",
     "businessLabel": "Business",
     "healthLabel": "Health",

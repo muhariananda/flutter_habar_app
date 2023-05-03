@@ -8,10 +8,10 @@ class NewsListLocalizationsEn extends NewsListLocalizations {
   String get newsListRefreshErrorMessage => 'We couldn\'t refresh your items.\nPlease, check your internet connection and try again later.';
 
   @override
-  String get listHeader => 'Your daily brief';
+  String get listHeader => 'Today\'s Headlines';
 
   @override
-  String get listSubHeader => 'browse all the latest news.';
+  String get listSubHeader => 'Latest news across categories';
 
   @override
   String get allLabel => 'All';
