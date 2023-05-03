@@ -6,6 +6,8 @@ import 'package:news_detail/news_detail.dart';
 import 'package:news_detail/src/cubit/news_detail_cubit.dart';
 import 'package:share_plus/share_plus.dart';
 
+const _progressIndicatorHeight = 1.5;
+
 class NewsDetailActionBar extends StatelessWidget
     implements PreferredSizeWidget {
   const NewsDetailActionBar({
@@ -17,7 +19,7 @@ class NewsDetailActionBar extends StatelessWidget
 
   @override
   Size get preferredSize => const Size.fromHeight(
-        kToolbarHeight + Spacing.xSmall,
+        kToolbarHeight + _progressIndicatorHeight,
       );
 
   @override
@@ -28,6 +30,8 @@ class NewsDetailActionBar extends StatelessWidget
 
     return BlocBuilder<NewsDetailCubit, NewsDetailState>(
       builder: (context, state) {
+        final isProgressFinished = state.progress < 1.0;
+
         return Column(
           children: [
             RowAppBar(
@@ -41,7 +45,7 @@ class NewsDetailActionBar extends StatelessWidget
                         article.title,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: theme.text.labelLarge,
+                        style: theme.text.titleSmall,
                       ),
                       Text(
                         article.url,
@@ -55,7 +59,7 @@ class NewsDetailActionBar extends StatelessWidget
                   ),
                 ),
                 ShareIconButton(
-                  onShare: _onShare,
+                  onShare: _handleOnShare,
                 ),
                 BookmarkIconButton(
                   isBookmark: state.isBookmark,
@@ -82,10 +86,10 @@ class NewsDetailActionBar extends StatelessWidget
               ],
             ),
             Visibility(
-              visible: state.progress < 1.0,
+              visible: isProgressFinished,
               child: LinearProgressIndicator(
                 value: state.progress,
-                minHeight: Spacing.xSmall,
+                minHeight: _progressIndicatorHeight,
               ),
             )
           ],
@@ -94,7 +98,7 @@ class NewsDetailActionBar extends StatelessWidget
     );
   }
 
-  void _onShare() {
+  void _handleOnShare() {
     Share.share(article.url);
   }
 }
