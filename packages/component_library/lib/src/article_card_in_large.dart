@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:component_library/component_library.dart';
 import 'package:component_library/src/article_card.dart';
+import 'package:component_library/src/image_error_indicator.dart';
 import 'package:component_library/src/utils/string_to_time_ago.dart';
 import 'package:flutter/material.dart';
 
@@ -32,9 +33,7 @@ class ArticleCardInLarge extends ArticleCard {
                 imageUrl: imageUrl,
                 placeholder: (_, url) =>
                     const CenteredCircularProgressIndicator(),
-                errorWidget: (_, url, error) => Container(
-                  color: Colors.grey,
-                ),
+                errorWidget: (_, url, error) => const ImageErrorIndicator(),
                 fit: BoxFit.cover,
               ),
             ),
