@@ -13,7 +13,6 @@ class EmptyItemsIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = NewsTheme.of(context)!;
     final l10n = ComponentLibraryLocalizations.of(context);
-
     return Center(
       child: Padding(
         padding: const EdgeInsets.symmetric(

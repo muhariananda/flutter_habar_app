@@ -24,7 +24,4 @@ class ComponentLibraryLocalizationsEn extends ComponentLibraryLocalizations {
 
   @override
   String get searchHintText => 'Search';
-
-  @override
-  String get localMessage => 'en';
 }

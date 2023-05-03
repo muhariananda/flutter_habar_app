@@ -1,30 +1,24 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:component_library/component_library.dart';
+import 'package:component_library/src/article_card.dart';
 import 'package:component_library/src/utils/string_to_time_ago.dart';
 import 'package:flutter/material.dart';
 
 const _itemSpacing = Spacing.medium;
 
-class ArticleLargeCard extends StatelessWidget {
-  const ArticleLargeCard({
-    required this.title,
-    required this.author,
-    required this.publishedAt,
-    required this.imageUrl,
-    this.onTap,
+class ArticleCardInLarge extends ArticleCard {
+  const ArticleCardInLarge({
+    required super.title,
+    required super.source,
+    required super.publishedAt,
+    required super.imageUrl,
+    super.onTap,
     super.key,
   });
-
-  final String title;
-  final String author;
-  final String publishedAt;
-  final String imageUrl;
-  final VoidCallback? onTap;
-
+  
   @override
-  Widget build(BuildContext context) {
+  Widget buildWidget(BuildContext context) {
     final theme = NewsTheme.of(context)!;
-
     return InkWell(
       onTap: onTap,
       child: Column(
@@ -54,7 +48,7 @@ class ArticleLargeCard extends StatelessWidget {
           ),
           const SizedBox(height: _itemSpacing),
           Text(
-            '$author • ${publishedAt.toTimeAgo()}',
+            subHeading,
             style: theme.text.labelSmall,
           ),
         ],

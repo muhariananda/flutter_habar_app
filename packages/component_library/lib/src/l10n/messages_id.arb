@@ -5,6 +5,5 @@
     "exceptionIndicatorTitle": "Opps terdapat kesalahan",
     "exceptionIndicatorMessage": "Terjadi kesalahan pada aplikasi, silahkan coba lagi nanti.",
     "tryAgainLabel": "Coba lagi",
-    "searchHintText": "Pencarian",
-    "localMessage": "id"
+    "searchHintText": "Pencarian"
 }

@@ -134,12 +134,6 @@ abstract class ComponentLibraryLocalizations {
   /// In en, this message translates to:
   /// **'Search'**
   String get searchHintText;
-
-  /// No description provided for @localMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'en'**
-  String get localMessage;
 }
 
 class _ComponentLibraryLocalizationsDelegate extends LocalizationsDelegate<ComponentLibraryLocalizations> {

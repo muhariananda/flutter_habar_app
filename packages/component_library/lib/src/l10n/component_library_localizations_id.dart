@@ -24,7 +24,4 @@ class ComponentLibraryLocalizationsId extends ComponentLibraryLocalizations {
 
   @override
   String get searchHintText => 'Pencarian';
-
-  @override
-  String get localMessage => 'id';
 }
