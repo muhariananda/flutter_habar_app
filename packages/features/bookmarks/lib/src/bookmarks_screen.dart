@@ -44,8 +44,8 @@ class BookmarksView extends StatelessWidget {
 
     return Padding(
       padding: EdgeInsets.symmetric(
-        vertical: Spacing.small,
         horizontal: theme.screenMargin,
+        vertical: Spacing.mediumLarge,
       ),
       child: BlocBuilder<BookmarksCubit, BookmarksState>(
         builder: (context, state) {
