@@ -1,4 +1,6 @@
 abstract class Spacing {
+  Spacing._();
+  
   static const double xSmall = 4;
   static const double small = 8;
   static const double medium = 12;
