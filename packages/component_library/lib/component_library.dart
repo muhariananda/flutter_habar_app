@@ -11,6 +11,7 @@ export 'src/rounded_elevated_button.dart';
 export 'src/rounded_search_bar.dart';
 export 'src/row_app_bar.dart';
 export 'src/share_icon_button.dart';
+export 'src/styled_status_bar.dart';
 export 'src/theme/app_theme.dart';
 export 'src/theme/app_theme_data.dart';
 export 'src/theme/font_size.dart';

@@ -115,69 +115,71 @@ class _NewsListViewState extends State<NewsListView> {
 
         _pagingController.value = state.toPagingState();
       },
-      child: SafeArea(
-        child: Scaffold(
-          body: GestureDetector(
-            onTap: () => _releaseFocus(context),
-            child: NestedScrollView(
-              controller: _scrollController,
-              headerSliverBuilder: (context, _) => [
-                SliverToBoxAdapter(
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                      left: theme.screenMargin,
-                      right: theme.screenMargin,
-                      top: Spacing.xxLarge,
-                      bottom: Spacing.medium,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          l10n.listHeader,
-                          style: theme.text.titleLarge,
-                        ),
-                        const SizedBox(height: Spacing.small),
-                        Text(
-                          l10n.listSubHeader,
-                          style: theme.text.labelMedium,
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                SliverAppBar(
-                  floating: true,
-                  snap: true,
-                  backgroundColor: theme.colors.background,
-                  bottom: PreferredSize(
-                    preferredSize: const Size.fromHeight(100),
+      child: StyledStatusBar.dark(
+        child: SafeArea(
+          child: Scaffold(
+            body: GestureDetector(
+              onTap: () => _releaseFocus(context),
+              child: NestedScrollView(
+                controller: _scrollController,
+                headerSliverBuilder: (context, _) => [
+                  SliverToBoxAdapter(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 16,
+                      padding: EdgeInsets.only(
+                        left: theme.screenMargin,
+                        right: theme.screenMargin,
+                        top: Spacing.xxLarge,
+                        bottom: Spacing.medium,
                       ),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: theme.screenMargin,
-                            ),
-                            child: RoundedSearchBar(
-                              controller: _searchBarController,
-                            ),
+                          Text(
+                            l10n.listHeader,
+                            style: theme.text.titleLarge,
                           ),
-                          const FilterHorizontalList(),
+                          const SizedBox(height: Spacing.small),
+                          Text(
+                            l10n.listSubHeader,
+                            style: theme.text.labelMedium,
+                          )
                         ],
                       ),
                     ),
                   ),
-                ),
-              ],
-              body: RefreshIndicator(
-                onRefresh: _onRefresh,
-                child: NewsPageListView(
-                  pagingController: _pagingController,
-                  onArticleSelected: widget.onArticleSelected,
+                  SliverAppBar(
+                    floating: true,
+                    snap: true,
+                    backgroundColor: theme.colors.background,
+                    bottom: PreferredSize(
+                      preferredSize: const Size.fromHeight(100),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 16,
+                        ),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: theme.screenMargin,
+                              ),
+                              child: RoundedSearchBar(
+                                controller: _searchBarController,
+                              ),
+                            ),
+                            const FilterHorizontalList(),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+                body: RefreshIndicator(
+                  onRefresh: _onRefresh,
+                  child: NewsPageListView(
+                    pagingController: _pagingController,
+                    onArticleSelected: widget.onArticleSelected,
+                  ),
                 ),
               ),
             ),

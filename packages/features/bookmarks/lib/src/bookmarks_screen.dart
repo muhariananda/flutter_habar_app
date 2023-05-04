@@ -41,40 +41,41 @@ class BookmarksView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = NewsTheme.of(context)!;
-
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: theme.screenMargin,
-        vertical: Spacing.mediumLarge,
-      ),
-      child: BlocBuilder<BookmarksCubit, BookmarksState>(
-        builder: (context, state) {
-          if (state is BookmarksEmpty) {
-            return const EmptyItemsIndicator();
-          } else if (state is BookmarksLoaded) {
-            final articles = state.items;
-            return ListView.separated(
-              itemCount: articles.length,
-              separatorBuilder: (BuildContext context, int index) {
-                return const SizedBox(height: Spacing.mediumLarge);
-              },
-              itemBuilder: (BuildContext context, int index) {
-                final article = articles[index];
-                return ArticleCardInSmall(
-                  title: article.title,
-                  source: article.source.name,
-                  publishedAt: article.publishedAt,
-                  imageUrl: article.urlToImage,
-                  onTap: () {
-                    onSelectedArticle?.call(article);
-                  },
-                );
-              },
-            );
-          } else {
-            return const Text('');
-          }
-        },
+    return StyledStatusBar.dark(
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: theme.screenMargin,
+          vertical: Spacing.mediumLarge,
+        ),
+        child: BlocBuilder<BookmarksCubit, BookmarksState>(
+          builder: (context, state) {
+            if (state is BookmarksEmpty) {
+              return const EmptyItemsIndicator();
+            } else if (state is BookmarksLoaded) {
+              final articles = state.items;
+              return ListView.separated(
+                itemCount: articles.length,
+                separatorBuilder: (BuildContext context, int index) {
+                  return const SizedBox(height: Spacing.mediumLarge);
+                },
+                itemBuilder: (BuildContext context, int index) {
+                  final article = articles[index];
+                  return ArticleCardInSmall(
+                    title: article.title,
+                    source: article.source.name,
+                    publishedAt: article.publishedAt,
+                    imageUrl: article.urlToImage,
+                    onTap: () {
+                      onSelectedArticle?.call(article);
+                    },
+                  );
+                },
+              );
+            } else {
+              return const Text('');
+            }
+          },
+        ),
       ),
     );
   }
