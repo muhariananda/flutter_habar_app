@@ -111,6 +111,26 @@ class NewsRepository {
       rethrow;
     }
   }
+
+  Stream<ArticleListPage> watchArticles() async* {
+    yield* _localStorage
+        .watchArticles()
+        .map((cachePage) => cachePage.toDomainModel());
+  }
+
+  Future<void> bookmarkArticle(Article article) async {
+    final bookmarkArticle = article.toCacheModel();
+    await _localStorage.insertArticle(bookmarkArticle);
+  }
+
+  Future<void> unbookmarkArticle(String url) async {
+    await _localStorage.removeArticle(url);
+  }
+
+  Future<bool> isBookmark(String url) async {
+    final article = await _localStorage.getArticle(url);
+    return article != null;
+  }
 }
 
 enum ArticleListaPageFetchPolicy {

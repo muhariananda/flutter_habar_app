@@ -3,6 +3,7 @@ import 'package:domain_models/domain_models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:news_list/news_list.dart';
 import 'package:news_list/src/bloc/news_list_bloc.dart';
 import 'package:news_list/src/widgets/filter_horizontal_list.dart';
 import 'package:news_list/src/widgets/news_page_list_view.dart';
@@ -90,6 +91,8 @@ class _NewsListViewState extends State<NewsListView> {
   @override
   Widget build(BuildContext context) {
     final theme = NewsTheme.of(context)!;
+    final l10n = NewsListLocalizations.of(context);
+
     return BlocListener<NewsListBloc, NewsListState>(
       listener: (context, state) {
         final searchBarText = _searchBarController.text;
@@ -102,9 +105,9 @@ class _NewsListViewState extends State<NewsListView> {
 
         if (state.refreshError != null) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
+            SnackBar(
               content: Text(
-                'Error',
+                l10n.newsListRefreshErrorMessage,
               ),
             ),
           );
@@ -112,69 +115,71 @@ class _NewsListViewState extends State<NewsListView> {
 
         _pagingController.value = state.toPagingState();
       },
-      child: SafeArea(
-        child: Scaffold(
-          body: GestureDetector(
-            onTap: () => _releaseFocus(context),
-            child: NestedScrollView(
-              controller: _scrollController,
-              headerSliverBuilder: (context, _) => [
-                SliverToBoxAdapter(
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                      left: theme.screenMargin,
-                      right: theme.screenMargin,
-                      top: Spacing.xxLarge,
-                      bottom: Spacing.medium,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Discover',
-                          style: theme.text.titleLarge,
-                        ),
-                        const SizedBox(height: Spacing.small),
-                        Text(
-                          'Read news all around the world',
-                          style: theme.text.labelMedium,
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                SliverAppBar(
-                  floating: true,
-                  snap: true,
-                  backgroundColor: theme.colors.background,
-                  bottom: PreferredSize(
-                    preferredSize: const Size.fromHeight(100),
+      child: StyledStatusBar.dark(
+        child: SafeArea(
+          child: Scaffold(
+            body: GestureDetector(
+              onTap: () => _releaseFocus(context),
+              child: NestedScrollView(
+                controller: _scrollController,
+                headerSliverBuilder: (context, _) => [
+                  SliverToBoxAdapter(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 16,
+                      padding: EdgeInsets.only(
+                        left: theme.screenMargin,
+                        right: theme.screenMargin,
+                        top: Spacing.xxLarge,
+                        bottom: Spacing.medium,
                       ),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: theme.screenMargin,
-                            ),
-                            child: RoundedSearchBar(
-                              controller: _searchBarController,
-                            ),
+                          Text(
+                            l10n.listHeader,
+                            style: theme.text.titleLarge,
                           ),
-                          const FilterHorizontalList(),
+                          const SizedBox(height: Spacing.small),
+                          Text(
+                            l10n.listSubHeader,
+                            style: theme.text.labelMedium,
+                          )
                         ],
                       ),
                     ),
                   ),
-                ),
-              ],
-              body: RefreshIndicator(
-                onRefresh: _onRefresh,
-                child: NewsPageListView(
-                  pagingController: _pagingController,
-                  onArticleSelected: widget.onArticleSelected,
+                  SliverAppBar(
+                    floating: true,
+                    snap: true,
+                    backgroundColor: theme.colors.background,
+                    bottom: PreferredSize(
+                      preferredSize: const Size.fromHeight(100),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 16,
+                        ),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: theme.screenMargin,
+                              ),
+                              child: RoundedSearchBar(
+                                controller: _searchBarController,
+                              ),
+                            ),
+                            const FilterHorizontalList(),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+                body: RefreshIndicator(
+                  onRefresh: _onRefresh,
+                  child: NewsPageListView(
+                    pagingController: _pagingController,
+                    onArticleSelected: widget.onArticleSelected,
+                  ),
                 ),
               ),
             ),

@@ -7,6 +7,9 @@ environment:
   sdk: '>=2.19.4 <3.0.0'
 
 dependencies:
+  async: ^2.10.0
+  bookmarks:
+    path: packages/features/bookmarks
   component_library:
     path: packages/component_library
   cupertino_icons: ^1.0.2
@@ -14,15 +17,24 @@ dependencies:
     path: packages/domain_models
   flutter:
     sdk: flutter
-  go_router: ^6.5.5
+  flutter_localizations:
+    sdk: flutter
   key_value_storage:
     path: packages/key_value_storage
   news_api:
     path: packages/news_api
+  news_detail:
+    path: packages/features/news_detail
   news_list:
     path: packages/features/news_list
   news_repository:
     path: packages/news_repository
+  rxdart: ^0.27.7
+  salomon_bottom_bar: ^3.3.2
+  settings:
+    path: packages/features/settings
+  settings_repository:
+    path: packages/settings_repository
 
 dev_dependencies:
   flutter_test:

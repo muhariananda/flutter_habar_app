@@ -1,0 +1,4 @@
+enum LanguagePreference {
+  en,
+  id,
+}

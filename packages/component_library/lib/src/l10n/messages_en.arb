@@ -1,9 +1,9 @@
 {
+    "emptyItemsMessage": "You don't have bookmarks yet",
     "emptyResultTitle": "No news found",
     "emptyResultMessage": "Please look for another search.",
     "exceptionIndicatorTitle": "Opps there is something wrong",
     "exceptionIndicatorMessage": "There is a problem with the app, please try again later.",
     "tryAgainLabel": "Try again",
-    "searchHintText": "Search",
-    "localMessage": "en"
+    "searchHintText": "Search"
 }

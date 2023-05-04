@@ -1,5 +1,4 @@
 import 'package:component_library/component_library.dart';
-import 'package:component_library/src/l10n/component_library_localizations.dart';
 import 'package:flutter/material.dart';
 
 class EmptyResultIndicator extends StatelessWidget {
@@ -28,8 +27,8 @@ class EmptyResultIndicator extends StatelessWidget {
           children: [
             Icon(
               Icons.inbox_rounded,
-              size: 42,
-              color: theme.colors.onBackground,
+              size: 75,
+              color: theme.colors.surface,
             ),
             Text(
               title ?? l10n.emptyResultTitle,

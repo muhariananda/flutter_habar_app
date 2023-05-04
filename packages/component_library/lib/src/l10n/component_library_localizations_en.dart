@@ -5,6 +5,9 @@ class ComponentLibraryLocalizationsEn extends ComponentLibraryLocalizations {
   ComponentLibraryLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get emptyItemsMessage => 'You don\'t have bookmarks yet';
+
+  @override
   String get emptyResultTitle => 'No news found';
 
   @override
@@ -14,14 +17,12 @@ class ComponentLibraryLocalizationsEn extends ComponentLibraryLocalizations {
   String get exceptionIndicatorTitle => 'Opps there is something wrong';
 
   @override
-  String get exceptionIndicatorMessage => 'There is a problem with the app, please try again later.';
+  String get exceptionIndicatorMessage =>
+      'There is a problem with the app, please try again later.';
 
   @override
   String get tryAgainLabel => 'Try again';
 
   @override
   String get searchHintText => 'Search';
-
-  @override
-  String get localMessage => 'en';
 }

@@ -3,6 +3,7 @@ import 'package:domain_models/domain_models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_list/src/bloc/news_list_bloc.dart';
+import 'package:news_list/src/l10n/news_list_localizations.dart';
 
 const _itemSpacing = Spacing.xSmall;
 
@@ -34,7 +35,7 @@ class _Chip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = NewsTheme.of(context)!;
-
+    final l10n = NewsListLocalizations.of(context);
     return Padding(
       padding: EdgeInsets.only(
         left: theme.screenMargin,
@@ -47,7 +48,7 @@ class _Chip extends StatelessWidget {
         },
         builder: (context, isFiltering) {
           return RoundedChoiceChip(
-            label: 'All',
+            label: l10n.allLabel,
             isSelected: !isFiltering,
             onSelected: (isSelected) {
               _releaseFocus(context);
@@ -64,16 +65,15 @@ class _Chip extends StatelessWidget {
 
 class _CategoryChip extends StatelessWidget {
   const _CategoryChip({
-    this.category,
+    required this.category,
   });
 
-  final Category? category;
+  final Category category;
 
   @override
   Widget build(BuildContext context) {
     final theme = NewsTheme.of(context)!;
     final isLastCategory = Category.values.last == category;
-
     return Padding(
       padding: EdgeInsets.only(
         left: _itemSpacing,
@@ -88,7 +88,7 @@ class _CategoryChip extends StatelessWidget {
         },
         builder: (context, selectedCategory) {
           return RoundedChoiceChip(
-            label: category.toString(),
+            label: category.toLocalizations(context),
             isSelected: selectedCategory == category,
             onSelected: (isSelected) {
               _releaseFocus(context);
@@ -107,4 +107,25 @@ class _CategoryChip extends StatelessWidget {
 
 void _releaseFocus(BuildContext context) {
   FocusScope.of(context).unfocus();
+}
+
+extension on Category {
+  String toLocalizations(BuildContext context) {
+    final l10n = NewsListLocalizations.of(context);
+
+    switch (this) {
+      case Category.business:
+        return l10n.businessLabel;
+      case Category.entertainment:
+        return l10n.entertainmentLabel;
+      case Category.health:
+        return l10n.healthLabel;
+      case Category.science:
+        return l10n.scienceLabel;
+      case Category.sports:
+        return l10n.sportsLabel;
+      case Category.technology:
+        return l10n.technologyLabel;
+    }
+  }
 }

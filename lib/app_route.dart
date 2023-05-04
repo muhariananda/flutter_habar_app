@@ -1,28 +1,39 @@
-import 'package:go_router/go_router.dart';
-import 'package:news_list/news_list.dart';
+import 'package:domain_models/domain_models.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_news_app/tab_container_screen.dart';
+import 'package:news_detail/news_detail.dart';
 import 'package:news_repository/news_repository.dart';
+import 'package:settings_repository/settings_repository.dart';
 
-GoRouter configureRoutes({
+Map<String, Widget Function(BuildContext context)> buildAppRoutes({
   required NewsRepository newsRepository,
-}) =>
-    GoRouter(
-      routes: [
-        GoRoute(
-          path: _PathConstants.tabConatinerPath,
-          builder: (context, state) => NewsListScreen(
-            newsRepository: newsRepository,
-            onArticleSelected: (selectedArticle) {
-              // ! TODO : Add Route to Detail Screen
-            },
-          ),
-        )
-      ],
-    );
+  required SettingsRepository settingsRepository,
+}) {
+  return {
+    TabContainerScreen.routeName: (context) {
+      return TabContainerScreen(
+        newsRepository: newsRepository,
+        settingsRepository: settingsRepository,
+        onItemSelected: (article) {
+          context.navigateTo(
+            NewsDetailScreen.routeName,
+            argument: article,
+          );
+        },
+      );
+    },
+    NewsDetailScreen.routeName: (context) {
+      final args = ModalRoute.of(context)?.settings.arguments as Article?;
+      return NewsDetailScreen(
+        article: args!,
+        newsRepository: newsRepository,
+      );
+    },
+  };
+}
 
-class _PathConstants {
-  const _PathConstants._();
-
-  static String get tabConatinerPath => '/';
-
-  static String get newsListPath => '${tabConatinerPath}news';
+extension on BuildContext {
+  void navigateTo(String routeName, {Object? argument}) {
+    Navigator.pushNamed(this, routeName, arguments: argument);
+  }
 }
