@@ -5,15 +5,107 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Flutter Habar App",
+            "name": "Profile Mode",
             "type": "dart",
             "request": "launch",
             "program": "lib/main.dart",
-            // "flutterMode": "debug", // you can change the mode
+            "flutterMode": "profile",
             "args": [
                 "--dart-define",
-                "news-app-token=YOUR_API_KEY"
+                "news-app-token=2101fcbef6424e73bafcc8185868f7e3"
             ]
         },
+        {
+            "name": "Debug mode",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+            "flutterMode": "debug",
+            "args": [
+                "--dart-define",
+                "news-app-token=2101fcbef6424e73bafcc8185868f7e3"
+            ]
+        },
+        {
+            "name": "flutter_news_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "flutter_news_app (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "flutter_news_app (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "component_library",
+            "cwd": "packages/component_library",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "component_library (profile mode)",
+            "cwd": "packages/component_library",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "component_library (release mode)",
+            "cwd": "packages/component_library",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "domain_models",
+            "cwd": "packages/domain_models",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "key_value_storage",
+            "cwd": "packages/key_value_storage",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "news_api",
+            "cwd": "packages/news_api",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "news_repository",
+            "cwd": "packages/news_repository",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "news_list",
+            "cwd": "packages/features/news_list",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "news_list (profile mode)",
+            "cwd": "packages/features/news_list",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "news_list (release mode)",
+            "cwd": "packages/features/news_list",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
     ]
 }
