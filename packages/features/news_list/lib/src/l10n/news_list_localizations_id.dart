@@ -5,7 +5,8 @@ class NewsListLocalizationsId extends NewsListLocalizations {
   NewsListLocalizationsId([String locale = 'id']) : super(locale);
 
   @override
-  String get newsListRefreshErrorMessage => 'Tidak dapat memuat ulang item.\nSilahkan, cek koneksi internet anda dan ulangi kembali nanti.';
+  String get newsListRefreshErrorMessage =>
+      'Tidak dapat memuat ulang item.\nSilahkan, cek koneksi internet anda dan ulangi kembali nanti.';
 
   @override
   String get listHeader => 'Utama Hari Ini';

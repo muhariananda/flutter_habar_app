@@ -60,15 +60,18 @@ import 'settings_localizations_id.dart';
 /// be consistent with the languages listed in the SettingsLocalizations.supportedLocales
 /// property.
 abstract class SettingsLocalizations {
-  SettingsLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  SettingsLocalizations(String locale)
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
   static SettingsLocalizations of(BuildContext context) {
-    return Localizations.of<SettingsLocalizations>(context, SettingsLocalizations)!;
+    return Localizations.of<SettingsLocalizations>(
+        context, SettingsLocalizations)!;
   }
 
-  static const LocalizationsDelegate<SettingsLocalizations> delegate = _SettingsLocalizationsDelegate();
+  static const LocalizationsDelegate<SettingsLocalizations> delegate =
+      _SettingsLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -80,7 +83,8 @@ abstract class SettingsLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
     delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
@@ -124,34 +128,36 @@ abstract class SettingsLocalizations {
   String get languageTitle;
 }
 
-class _SettingsLocalizationsDelegate extends LocalizationsDelegate<SettingsLocalizations> {
+class _SettingsLocalizationsDelegate
+    extends LocalizationsDelegate<SettingsLocalizations> {
   const _SettingsLocalizationsDelegate();
 
   @override
   Future<SettingsLocalizations> load(Locale locale) {
-    return SynchronousFuture<SettingsLocalizations>(lookupSettingsLocalizations(locale));
+    return SynchronousFuture<SettingsLocalizations>(
+        lookupSettingsLocalizations(locale));
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'id'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['en', 'id'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_SettingsLocalizationsDelegate old) => false;
 }
 
 SettingsLocalizations lookupSettingsLocalizations(Locale locale) {
-
-
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en': return SettingsLocalizationsEn();
-    case 'id': return SettingsLocalizationsId();
+    case 'en':
+      return SettingsLocalizationsEn();
+    case 'id':
+      return SettingsLocalizationsId();
   }
 
   throw FlutterError(
-    'SettingsLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-    'an issue with the localizations generation tool. Please file an issue '
-    'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
-  );
+      'SettingsLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+      'an issue with the localizations generation tool. Please file an issue '
+      'on GitHub with a reproducible sample app and the gen-l10n configuration '
+      'that was used.');
 }

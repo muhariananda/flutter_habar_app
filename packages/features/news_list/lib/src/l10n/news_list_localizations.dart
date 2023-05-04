@@ -60,15 +60,18 @@ import 'news_list_localizations_id.dart';
 /// be consistent with the languages listed in the NewsListLocalizations.supportedLocales
 /// property.
 abstract class NewsListLocalizations {
-  NewsListLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  NewsListLocalizations(String locale)
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
   static NewsListLocalizations of(BuildContext context) {
-    return Localizations.of<NewsListLocalizations>(context, NewsListLocalizations)!;
+    return Localizations.of<NewsListLocalizations>(
+        context, NewsListLocalizations)!;
   }
 
-  static const LocalizationsDelegate<NewsListLocalizations> delegate = _NewsListLocalizationsDelegate();
+  static const LocalizationsDelegate<NewsListLocalizations> delegate =
+      _NewsListLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -80,7 +83,8 @@ abstract class NewsListLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
     delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
@@ -154,34 +158,36 @@ abstract class NewsListLocalizations {
   String get entertainmentLabel;
 }
 
-class _NewsListLocalizationsDelegate extends LocalizationsDelegate<NewsListLocalizations> {
+class _NewsListLocalizationsDelegate
+    extends LocalizationsDelegate<NewsListLocalizations> {
   const _NewsListLocalizationsDelegate();
 
   @override
   Future<NewsListLocalizations> load(Locale locale) {
-    return SynchronousFuture<NewsListLocalizations>(lookupNewsListLocalizations(locale));
+    return SynchronousFuture<NewsListLocalizations>(
+        lookupNewsListLocalizations(locale));
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'id'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['en', 'id'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_NewsListLocalizationsDelegate old) => false;
 }
 
 NewsListLocalizations lookupNewsListLocalizations(Locale locale) {
-
-
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en': return NewsListLocalizationsEn();
-    case 'id': return NewsListLocalizationsId();
+    case 'en':
+      return NewsListLocalizationsEn();
+    case 'id':
+      return NewsListLocalizationsId();
   }
 
   throw FlutterError(
-    'NewsListLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-    'an issue with the localizations generation tool. Please file an issue '
-    'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
-  );
+      'NewsListLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+      'an issue with the localizations generation tool. Please file an issue '
+      'on GitHub with a reproducible sample app and the gen-l10n configuration '
+      'that was used.');
 }

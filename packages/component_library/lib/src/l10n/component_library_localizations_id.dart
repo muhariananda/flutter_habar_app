@@ -11,13 +11,15 @@ class ComponentLibraryLocalizationsId extends ComponentLibraryLocalizations {
   String get emptyResultTitle => 'Tidak ada berita yang ditemukan';
 
   @override
-  String get emptyResultMessage => 'Silahkan untuk masukkan kata kunci yang lain.';
+  String get emptyResultMessage =>
+      'Silahkan untuk masukkan kata kunci yang lain.';
 
   @override
   String get exceptionIndicatorTitle => 'Opps terdapat kesalahan';
 
   @override
-  String get exceptionIndicatorMessage => 'Terjadi kesalahan pada aplikasi, silahkan coba lagi nanti.';
+  String get exceptionIndicatorMessage =>
+      'Terjadi kesalahan pada aplikasi, silahkan coba lagi nanti.';
 
   @override
   String get tryAgainLabel => 'Coba lagi';

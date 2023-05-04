@@ -74,7 +74,6 @@ List<Tile> getRadioTileList(BuildContext context) {
   ];
 }
 
-
 class Tile {
   Tile(this.title, this.preference);
 

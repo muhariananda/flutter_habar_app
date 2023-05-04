@@ -11,7 +11,8 @@ class SettingsLocalizationsId extends SettingsLocalizations {
   String get darkModePreferenceAlwaysLightLabel => 'Selalu Terang';
 
   @override
-  String get darkModePreferenceUseSystemSettingsLabel => 'Gunakan Pengaturan Sistem';
+  String get darkModePreferenceUseSystemSettingsLabel =>
+      'Gunakan Pengaturan Sistem';
 
   @override
   String get themeModeTitle => 'Pilihan mode tema';

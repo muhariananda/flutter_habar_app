@@ -5,7 +5,8 @@ class NewsListLocalizationsEn extends NewsListLocalizations {
   NewsListLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get newsListRefreshErrorMessage => 'We couldn\'t refresh your items.\nPlease, check your internet connection and try again later.';
+  String get newsListRefreshErrorMessage =>
+      'We couldn\'t refresh your items.\nPlease, check your internet connection and try again later.';
 
   @override
   String get listHeader => 'Today\'s Headlines';

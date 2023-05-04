@@ -1,6 +1,6 @@
 abstract class FontSize {
   FontSize._();
-  
+
   static const double small = 11;
   static const double xSmall = 12;
   static const double medium = 14;

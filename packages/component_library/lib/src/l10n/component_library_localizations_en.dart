@@ -17,7 +17,8 @@ class ComponentLibraryLocalizationsEn extends ComponentLibraryLocalizations {
   String get exceptionIndicatorTitle => 'Opps there is something wrong';
 
   @override
-  String get exceptionIndicatorMessage => 'There is a problem with the app, please try again later.';
+  String get exceptionIndicatorMessage =>
+      'There is a problem with the app, please try again later.';
 
   @override
   String get tryAgainLabel => 'Try again';

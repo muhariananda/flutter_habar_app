@@ -20,7 +20,7 @@ extension ArticleRMtoCM on ArticleRM {
         publishedAt: publishedAt,
         author: author,
         description: description,
-        content:  content,
+        content: content,
         urlToImage: urlToImage,
       );
 }
