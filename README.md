@@ -10,6 +10,14 @@ Flutter Habar App is a mobile application that allows users to browse news artic
 | --- | --- | --- |
 | ![Home Screen](screenshots/home_screen.png) | ![Dark Mode](screenshots/dark_home_screen.png) | ![Detail Screen](screenshots/detail_screen.png)
 
+## Features
+
+- Browse news articles by category
+- Search for news articles
+- Save favorite articles for later reading
+- Dark mode support
+- Localization support for English and Indonesia
+
 ## Tech Stack
 
 - State management: Bloc pattern with [flutter_bloc](https://pub.dev/packages/flutter_bloc) package
@@ -19,14 +27,6 @@ Flutter Habar App is a mobile application that allows users to browse news artic
 - Image loading: [Cached_network_image](https://pub.dev/packages/cached_network_image) package
 - Date/time formatting: [Intl](https://pub.dev/packages/intl) package
 - Lint : [very_good_analysis](https://pub.dev/packages/very_good_analysis) package for code style
-
-## Features
-
-- Browse news articles by category
-- Search for news articles
-- Save favorite articles for later reading
-- Dark mode support
-- Localization support for English and Indonesia
 
 ## Getting Started
 
