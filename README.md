@@ -61,7 +61,7 @@ To use this app, follow these steps:
 7. Run the app using vscode debug or the following command:
 
 ```bash
-flutter run --dart-define=fav-qs-app-token=YOUR_KEY
+flutter run --dart-define=news-app-token=YOUR_API_KEY
 ```
 
 ## Contributing
