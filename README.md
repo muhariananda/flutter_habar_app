@@ -38,31 +38,31 @@ To use this app, follow these steps:
 4. Open a terminal window and navigate to the project directory.
 5. Run the following command to install the required dependencies:
 
-```bash
-    make get
-```
+    ```bash
+        make get
+    ```
 
 6. Replace `YOUR_API_KEY` in `.vscode/launch.json` with your actual NewsAPI API key.
 
-```json
-{
-    "name": "Flutter Habar App",
-    "type": "dart",
-    "request": "launch",
-    "program": "lib/main.dart",
-    // "flutterMode": "debug", // you can change the mode
-    "args": [
-        "--dart-define",
-        "news-app-token=YOUR_API_KEY" //replace with your API key
-    ]
-}
-```
+    ```json
+    {
+        "name": "Flutter Habar App",
+        "type": "dart",
+        "request": "launch",
+        "program": "lib/main.dart",
+        "flutterMode": "debug", // you can change the mode
+        "args": [
+            "--dart-define",
+            "news-app-token=YOUR_API_KEY" //replace with your API key
+        ]
+    }
+    ```
 
 7. Run the app using vscode debug or the following command:
 
-```bash
-flutter run --dart-define=news-app-token=YOUR_API_KEY
-```
+    ```bash
+        flutter run --dart-define=news-app-token=YOUR_API_KEY
+    ```
 
 ## Contributing
 
@@ -70,4 +70,4 @@ Contributions are welcome! Feel free to open an issue or submit a pull request.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE)
+This project is licensed under the Apache License, Version 2.0. See the [LICENSE](LICENSE) file for more details.
