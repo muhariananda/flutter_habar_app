@@ -23,7 +23,7 @@ Flutter Habar App is a mobile application that allows users to browse news artic
 - State management: Bloc pattern with [flutter_bloc](https://pub.dev/packages/flutter_bloc) package
 - Networking: [Dio](https://pub.dev/packages/dio) package for HTTP requests
 - Navigation: Flutter's built-in Navigator widget
-- Data storage: Shared preferences package for simple key-value storage, [Hive](https://pub.dev/packages/hive) package for more complex data storage
+- Data storage: [Hive](https://pub.dev/packages/hive) package for more complex data storage and for simple key-value storage.
 - Image loading: [Cached_network_image](https://pub.dev/packages/cached_network_image) package
 - Date/time formatting: [Intl](https://pub.dev/packages/intl) package
 - Lint : [very_good_analysis](https://pub.dev/packages/very_good_analysis) package for code style
